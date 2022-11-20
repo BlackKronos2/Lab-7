@@ -19,5 +19,9 @@ namespace Lab_7
 
             sprite = Resource1.TestSprite;
         }
+
+        public void DrawSprite(Graphics graphics) {
+            graphics.DrawImage(sprite, position.X, position.Y, entity_size.Width, entity_size.Height);
+        }
     }
 }

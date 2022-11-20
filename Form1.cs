@@ -12,11 +12,14 @@ namespace Lab_7
 {
     public partial class Form1 : Form
     {
+        public Entity entity;
         public Form1()
         {
             InitializeComponent();
             timer1.Interval = 50;
             timer1.Tick += new EventHandler(Update);
+
+            entity = new Entity(new Size(100, 100));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -30,7 +33,8 @@ namespace Lab_7
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            
+            Graphics graphics = e.Graphics;
+            entity.DrawSprite(graphics);
         }
     }
 }
