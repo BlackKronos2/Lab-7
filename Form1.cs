@@ -15,6 +15,22 @@ namespace Lab_7
         public Form1()
         {
             InitializeComponent();
+            timer1.Interval = 50;
+            timer1.Tick += new EventHandler(Update);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Update(object sender, EventArgs e) { 
+            
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            
         }
     }
 }
