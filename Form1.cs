@@ -32,5 +32,9 @@ namespace Lab_7
         {
             
         }
+
+        private void test() { 
+            
+        }
     }
 }
