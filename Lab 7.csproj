@@ -85,5 +85,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Красная фишка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Синяя фишка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Жёлтая фишка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Бирюзовая фишка.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Зелёная фишка.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
