@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace Lab_7
 {
-    public class Entity
+    public class Render: Transform
     {
         public Image sprite;
-        public PointF position;
         public Size entity_size;
 
-        public Entity(Size size) {
+        public Render(Size size) {
             position = new PointF(100, 100);
             entity_size = size;
 
