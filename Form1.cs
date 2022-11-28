@@ -24,18 +24,14 @@ namespace Lab_7
 
         }
 
-        private void Update(object sender, EventArgs e) { 
-            
+        private void Update(object sender, EventArgs e) 
+        { 
+            //
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
