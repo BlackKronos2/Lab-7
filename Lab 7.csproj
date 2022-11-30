@@ -59,6 +59,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,19 +92,19 @@
     <None Include="Resources\Background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Красная фишка.png" />
+    <None Include="Resources\Blue.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Синяя фишка.png" />
+    <None Include="Resources\Cyan.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Жёлтая фишка.png" />
+    <None Include="Resources\Yellow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Бирюзовая фишка.png" />
+    <None Include="Resources\Red.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Зелёная фишка.png" />
+    <None Include="Resources\Green.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -73,9 +73,9 @@ namespace Lab_7 {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Бирюзовая_фишка {
+        internal static System.Drawing.Bitmap Blue {
             get {
-                object obj = ResourceManager.GetObject("Бирюзовая_фишка", resourceCulture);
+                object obj = ResourceManager.GetObject("Blue", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace Lab_7 {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Жёлтая_фишка {
+        internal static System.Drawing.Bitmap Cyan {
             get {
-                object obj = ResourceManager.GetObject("Жёлтая_фишка", resourceCulture);
+                object obj = ResourceManager.GetObject("Cyan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Lab_7 {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Зелёная_фишка {
+        internal static System.Drawing.Bitmap Green {
             get {
-                object obj = ResourceManager.GetObject("Зелёная_фишка", resourceCulture);
+                object obj = ResourceManager.GetObject("Green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Lab_7 {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Красная_фишка {
+        internal static System.Drawing.Bitmap Red {
             get {
-                object obj = ResourceManager.GetObject("Красная_фишка", resourceCulture);
+                object obj = ResourceManager.GetObject("Red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Lab_7 {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Синяя_фишка {
+        internal static System.Drawing.Bitmap Yellow {
             get {
-                object obj = ResourceManager.GetObject("Синяя_фишка", resourceCulture);
+                object obj = ResourceManager.GetObject("Yellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
