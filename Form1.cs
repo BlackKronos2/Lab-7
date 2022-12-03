@@ -16,22 +16,28 @@ namespace Lab_7
         public Form1()
         {
             InitializeComponent();
-            render = new Render(Resource1.b, new Size(100, 100));
             timer1.Interval = 10;
-            timer1.Tick += new EventHandler(Update);
+            //timer1.Tick += new EventHandler(Update);
             timer1.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            //render.position = new PointF(200, 100);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
+            timer1.Interval = 10;
+            //timer1.Tick += new EventHandler(Update);
+            timer1.Start();
+            render = new Render(Resource1.b, new Size(100, 100));
+            render.position = new PointF(200, 100);
         }
 
         private void Update(object sender, EventArgs e) 
         {
             render.position.X += 1;
             render.sprite = Resource1.b4;
+
+            Invalidate();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
