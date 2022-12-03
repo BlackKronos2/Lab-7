@@ -13,6 +13,7 @@ namespace Lab_7
     public partial class Form1 : Form
     {
         public Render render;
+        public Render render1;
         public Form1()
         {
             InitializeComponent();
@@ -29,20 +30,23 @@ namespace Lab_7
             //timer1.Tick += new EventHandler(Update);
             timer1.Start();
             render = new Render(Resource1.b, new Size(100, 100));
-            render.position = new PointF(200, 100);
+            render1 = new Render(Resource1.b2, new Size(100, 100));
+            render.position = new PointF(250, 100);
+            render1.position = new PointF(400, 100);
         }
 
         private void Update(object sender, EventArgs e) 
         {
-            render.position.X += 1;
-            render.sprite = Resource1.b4;
-
+            //render.position.X += 1;
+            render.sprite = Resource1.b;
+            render1.sprite = Resource1.b2;
             Invalidate();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             render.DrawSprite(e.Graphics);
+            render1.DrawSprite(e.Graphics);
         }
     }
 }
