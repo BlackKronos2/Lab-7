@@ -37,19 +37,16 @@ namespace Lab_7
             render2.position = new PointF(200, 50);
         }
 
-        private void Mixing()
+        private int Mixing()
         {
             int value1 = random1.Next(1, 7); //получение случайного числа от 1 до 6 
             int value2 = random2.Next(1, 7); //получение случайного числа от 1 до 6 
             Image[] image = new Image[6] { Resource1.b, Resource1.b2, Resource1.b3, Resource1.b4, Resource1.b5, Resource1.b6 };
             render1.sprite = image[value1 - 1];
             render2.sprite = image[value2 - 1];
-        }
 
-        //private int Sum()
-        //{
-        //    return (value1 + value2);
-        //}
+            return value1 + value2;
+        }
 
         private void Update(object sender, EventArgs e) 
         {
