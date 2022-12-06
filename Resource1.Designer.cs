@@ -63,6 +63,76 @@ namespace Lab_7 {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dice_1 {
+            get {
+                object obj = ResourceManager.GetObject("Dice_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice_2 {
+            get {
+                object obj = ResourceManager.GetObject("Dice_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice_3 {
+            get {
+                object obj = ResourceManager.GetObject("Dice_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice_4 {
+            get {
+                object obj = ResourceManager.GetObject("Dice_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice_5 {
+            get {
+                object obj = ResourceManager.GetObject("Dice_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice_6 {
+            get {
+                object obj = ResourceManager.GetObject("Dice_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dice_holst {
+            get {
+                object obj = ResourceManager.GetObject("Dice_holst", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TestSprite {
             get {
                 object obj = ResourceManager.GetObject("TestSprite", resourceCulture);
