@@ -21,7 +21,6 @@ namespace Lab_7
                 players_positions[i] = 0;
             for (int i = 0; i < players.Length; i++)
                 players[i].Position = points[0];
-
         }
 
         public void PlayerMove(int player_number, int distance) {

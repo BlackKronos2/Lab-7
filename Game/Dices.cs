@@ -74,5 +74,10 @@ namespace Lab_7
         public int Values {
             get { return value1 * 10 + value2; }
         }
+
+        public void DrawDices(Graphics graphics) {
+            render1.DrawSprite(graphics);
+            render2.DrawSprite(graphics);
+        }
     }
 }
