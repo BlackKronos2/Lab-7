@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dices.cs" />
+    <Compile Include="GameManager.cs" />
     <Compile Include="Render.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -92,6 +94,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\holst.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,7 +13,6 @@ namespace Lab_7
     public partial class Form1 : Form
     {
         public Render entity;
-
         public PointF[] points;
         public int index = 0;
         public Form1()
@@ -28,11 +27,6 @@ namespace Lab_7
             timer1.Start();
 
             entity = new Render(new Size(100, 100));
-            points = new PointF[] {
-                new PointF(300, 60),
-                new PointF(280, 40),
-                new PointF(250, 70),
-            };
         }
         private void Form1_Load(object sender, EventArgs e)
         {

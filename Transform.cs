@@ -9,7 +9,7 @@ namespace Lab_7
 {
     public class Transform
     {
-        public PointF position;
+        private PointF position;
 
         public bool MoveToward(PointF target, float speed) {
 
@@ -23,6 +23,11 @@ namespace Lab_7
                 return true;
             else
                 return false;
+        }
+
+        public PointF Position {
+            get { return position; }
+            set { position = value; }
         }
     }
 }

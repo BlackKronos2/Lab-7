@@ -13,14 +13,21 @@ namespace Lab_7
         public Size entity_size;
 
         public Render(Size size) {
-            position = new PointF(100, 100);
+            Position = new PointF(100, 100);
             entity_size = size;
 
             sprite = Resource1.TestSprite;
         }
+        public Render(Image image, Size size)
+        {
+            Position = new PointF(100, 100);
+            entity_size = size;
+
+            sprite = image;
+        }
 
         public void DrawSprite(Graphics graphics) {
-            graphics.DrawImage(sprite, position.X, position.Y, entity_size.Width, entity_size.Height);
+            graphics.DrawImage(sprite, Position.X, Position.Y, entity_size.Width, entity_size.Height);
         }
     }
 }
