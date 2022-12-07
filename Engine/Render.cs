@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab_7
 {
-    public class Render: Transform
+    public class Render : Transform
     {
         public Image sprite;
         public Size entity_size;

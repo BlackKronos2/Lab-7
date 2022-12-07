@@ -15,6 +15,8 @@ namespace Lab_7
         public int point_number { get; set; } = 0;
 
         PointF shift;
+        public bool Shift { get; set; } = true;
+        PointF delta;
 
         public Player(int newnumber, string newname, Image image, Size size, PointF point) {
             number = newnumber;
@@ -24,27 +26,23 @@ namespace Lab_7
             entity_size = size;
             point_number = 0;
 
-            switch (number) {
-                case 1: shift = new PointF(0, 10); break;
-                case 2: shift = new PointF(10, 0); break;
-                case 3: shift = new PointF(0, -10); break;
-                case 4: shift = new PointF(0, -10); break;
+            switch (newnumber) {
+                case 1: shift = new PointF(0, -10f); break;
+                case 2: shift = new PointF(-10f, 0); break;
+                case 3: shift = new PointF(0, 10f); break;
+                case 4: shift = new PointF(10f, 0); break;
 
                 default: break;
             }
-        }
 
-        public void ShiftPosition(bool do_shift) {
-            PointF new_point;
-            if (do_shift)
-                new_point = new PointF(Position.X + shift.X, Position.Y + shift.Y);
-            else
-                new_point = new PointF(Position.X - shift.X, Position.Y - shift.Y);
-            Position = new_point;
+            delta = new PointF(entity_size.Width / 2 + 25 , 90);
         }
 
         public override void DrawSprite(Graphics graphics) {
-            graphics.DrawImage(sprite, Position.X - (entity_size.Width / 2), Position.Y - (entity_size.Height / 2), entity_size.Width, entity_size.Height);
+            float renderx = Position.X - (delta.X / 2) + ((Shift) ? (shift.X): (0));
+            float rendery = Position.Y - (delta.Y / 2) + ((Shift) ? (shift.Y) : (0));
+
+            graphics.DrawImage(sprite, renderx, rendery, entity_size.Width, entity_size.Height);
         }
     }
 }
