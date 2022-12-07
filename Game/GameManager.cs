@@ -9,23 +9,40 @@ namespace Lab_7
 {
     class GameManager
     {
-        private PointF[] points;
-        private int players_numbers;
+        PointF[] points;
+        PointF next_point;
 
-        private Render[] players = new Render[3];
+        public int active_player { get; set; } = 1;
+        Player[] player;
 
-        private int[] players_positions = new int[3];
-
+        public int move_steps { get; set; }
         public GameManager(PointF[] map_points) {
-            for (int i = 0; i < players_positions.Length; i++)
-                players_positions[i] = 0;
-            for (int i = 0; i < players.Length; i++)
-                players[i].Position = points[0];
+            points = map_points;
+            next_point = map_points[0];
+            player[0] = new Player(1, "Player", Resource1.Red, new Size(50, 70), points[0]);
+
+            move_steps = 1;
         }
 
-        public void PlayerMove(int player_number, int distance) {
-            players_positions[players_numbers] += distance;
-            players[players_numbers].MoveToward(points[players_positions[players_numbers]], 1);
+        public void Draw(Graphics graphics)
+        {
+            for (int i = 0; i < points.Length; i++)
+                graphics.DrawRectangle(Pens.Red, points[i].X, points[i].Y, 2, 2); //красная точка
+            player[0].DrawSprite(graphics);
+        }
+
+        public void GameTic() {
+            if(move_steps > 0)
+            if (player[0].Position != next_point)
+            {
+                    player[0].MoveToward(next_point, 10);
+            }
+            else {
+                if (player[0].point_number == points.Length - 1)
+                        player[0].point_number = -1;
+                next_point = points[++player[0].point_number];
+                move_steps--;
+            }
         }
     }
 }

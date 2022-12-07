@@ -16,7 +16,7 @@ namespace Lab_7
             Position = new PointF(100, 100);
             entity_size = size;
 
-            sprite = Resource1.TestSprite;
+            sprite = Resource1.missing_texture;
         }
         public Render(Image image, Size size)
         {
@@ -26,7 +26,11 @@ namespace Lab_7
             sprite = image;
         }
 
-        public void DrawSprite(Graphics graphics) {
+        public Render() {
+            sprite = Resource1.missing_texture;
+        }
+
+        public virtual void DrawSprite(Graphics graphics) {
             graphics.DrawImage(sprite, Position.X, Position.Y, entity_size.Width, entity_size.Height);
         }
     }

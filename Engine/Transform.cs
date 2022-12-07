@@ -12,12 +12,23 @@ namespace Lab_7
         private PointF position;
 
         public bool MoveToward(PointF target, float speed) {
-
             if (position.X != target.X)
-                position.X += (position.X < target.X) ? (speed) : (-speed);
-
+                if (Math.Abs(position.X - target.X) < speed && speed != 1)
+                {
+                    speed = 1;
+                    position.X += (position.X < target.X) ? (speed) : (-speed);
+                }
+                else
+                    position.X += (position.X < target.X) ? (speed) : (-speed);
+            else
             if (position.Y != target.Y)
-                position.Y += (position.Y < target.Y) ? (speed) : (-speed);
+                if (Math.Abs(position.Y - target.Y) < speed && speed != 1)
+                {
+                    speed = 1;
+                    position.Y += (position.Y < target.Y) ? (speed) : (-speed);
+                }
+                else
+                    position.Y += (position.Y < target.Y) ? (speed) : (-speed);
 
             if (position == target)
                 return true;

@@ -61,14 +61,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Engine\Transform.cs" />
     <Compile Include="Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
-    <Compile Include="Engine\Transform.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,28 +103,30 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\iconka.png" />
+    <None Include="Resources\Blue.png" />
+    <Content Include="Resources\Dice_2.png" />
+    <None Include="Resources\Green.png" />
+    <None Include="Resources\Yellow.png" />
+    <None Include="Resources\Red.png" />
+    <None Include="Resources\missing_texture.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\b2.png" />
+    <None Include="Resources\Dice_3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\b3.png" />
+    <None Include="Resources\Dice_4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\b4.png" />
+    <None Include="Resources\Dice_5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\b5.png" />
+    <None Include="Resources\Dice_6.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\b6.png" />
+    <None Include="Resources\Dice_1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\b.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\holst.png" />
+    <None Include="Resources\DiceHolst.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
