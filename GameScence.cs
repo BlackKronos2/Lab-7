@@ -95,13 +95,22 @@ namespace Lab_7
         private void button1_Click(object sender, EventArgs e)
         {
             _dices.Button = true;
-            timer = 1000;
+
+            if (_dices.Animation)
+                timer = 1000;
+            else
+                timer = 50;
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
             gameManager.Draw(graphics);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            _dices.Animation = !checkBox1.Checked;
         }
     }
 }
