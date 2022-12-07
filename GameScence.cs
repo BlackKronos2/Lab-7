@@ -81,6 +81,8 @@ namespace Lab_7
 
             Invalidate(); 
             pictureBox1.Invalidate();
+
+            Statistic();
         }
 
         private void GameScence_Paint(object sender, PaintEventArgs e)
@@ -111,6 +113,11 @@ namespace Lab_7
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             _dices.Animation = !checkBox1.Checked;
+        }
+
+        private void Statistic() {
+            richTextBox1.Text = gameManager.ActivePlayerNumber.ToString();
+            richTextBox1.Text += "\nMoveSteps " + gameManager.Move_steps.ToString();
         }
     }
 }

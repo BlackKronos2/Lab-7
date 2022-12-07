@@ -12,7 +12,6 @@ namespace Lab_7
         PointF[] points;
         PointF[] next_point;
 
-        public int active_player;
         Player[] player;
 
         private int move_steps;
@@ -33,7 +32,7 @@ namespace Lab_7
             };
 
             move_steps = 0;
-            ActivePlayerNumber = player.Length;
+            ActivePlayerNumber = 0;
         }
 
         public void Draw(Graphics graphics)
