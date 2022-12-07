@@ -68,16 +68,17 @@ namespace Lab_7
             set { move_steps = value; }
         }
 
-        private void CheckPositions() {
+        private void CheckPositions()
+        {
             for (int i = 0; i < player.Length; i++)
-                for (int j = 0; j < player.Length; j++) {
-                    if ((player[i].Name != player[j].Name) && (player[i].point_number == player[j].point_number))
-                        player[i].Shift = true;
+                for (int j = 0; j < player.Length; j++)
+                {
+                    if ((player[i].Name != player[j].Name) && (player[i].Position == player[j].Position))
+                        player[i].Shift = player[j].Shift = true;
                     else
-                        player[i].Shift = false;
+                        player[i].Shift = player[j].Shift = false;
                 }
         }
-
         public int ActivePlayerNumber {
             get { return activeplayernumber; }
             set {
