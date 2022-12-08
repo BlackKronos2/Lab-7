@@ -48,8 +48,11 @@ namespace Lab_7
                 new PointF(37, 356),
                 new PointF(29, 419),
                 new PointF(57, 463),
-                new PointF(103, 484),
-                new PointF(155, 493),
+                new PointF(103, 484), //15
+                new PointF(155, 493), //16
+                new PointF(155, 493), //17
+                //18
+
             };
 
 
