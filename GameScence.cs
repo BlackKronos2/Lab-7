@@ -138,7 +138,7 @@ namespace Lab_7
 
             };
 
-            gameManager = new GameManager(points);
+            gameManager = new GameManager(points, 4);
 
             timer = 0;
         }

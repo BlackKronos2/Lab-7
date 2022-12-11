@@ -17,19 +17,27 @@ namespace Lab_7
 
         private int firstmoveflag = 0;
 
-        public GameManager(PointF[] map_points) {
+        public GameManager(PointF[] map_points, int player_count) {
             points = map_points;
-            next_point = new PointF[3] { 
+
+            next_point = new PointF[4] { 
                 map_points[0],
                 map_points[0],
-                map_points[0]
+                map_points[0],
+                map_points[0],
             };
 
-            _players = new Player[3] { 
+            Player[] players = new Player[4] { 
                 new Player(1, "Player1", Resource1.Red, new Size(50, 70), points[0]),
                 new Player(2, "Player2", Resource1.Blue, new Size(50, 70), points[0]),
-                new Player(3, "Player3", Resource1.Green, new Size(50, 70), points[0])
+                new Player(3, "Player3", Resource1.Green, new Size(50, 70), points[0]),
+                new Player(4, "Player4", Resource1.Yellow, new Size(50, 70), points[0])
             };
+
+            _players = new Player[player_count]; 
+
+            for (int i = 0; i < player_count; i++)
+                _players[i] = players[i];
 
             move_steps = 0;
             ActivePlayerNumber = 0;
@@ -37,6 +45,7 @@ namespace Lab_7
 
         public void Draw(Graphics graphics)
         {
+            //Для отображения точек по которым ходят игроки
             for (int i = 0; i < points.Length; i++)
                 graphics.DrawRectangle(Pens.Red, points[i].X, points[i].Y, 2, 2); 
 
@@ -85,6 +94,7 @@ namespace Lab_7
                         _players[i].Shift = _players[j].Shift = false;
                 }
         }
+
         public int ActivePlayerNumber {
             get { return activeplayernumber; }
             set {
