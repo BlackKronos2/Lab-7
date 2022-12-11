@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Lab_7
 {
-    class GameManager
+    class GameManager: GameStatistics
     {
         PointF[] points;
         PointF[] next_point;
 
-        Player[] player;
-
         private int move_steps;
         private int activeplayernumber;
+
+        private int firstmoveflag = 0;
 
         public GameManager(PointF[] map_points) {
             points = map_points;
@@ -25,7 +25,7 @@ namespace Lab_7
                 map_points[0]
             };
 
-            player = new Player[3] { 
+            _players = new Player[3] { 
                 new Player(1, "Player1", Resource1.Red, new Size(50, 70), points[0]),
                 new Player(2, "Player2", Resource1.Blue, new Size(50, 70), points[0]),
                 new Player(3, "Player3", Resource1.Green, new Size(50, 70), points[0])
@@ -41,22 +41,28 @@ namespace Lab_7
                 graphics.DrawRectangle(Pens.Red, points[i].X, points[i].Y, 2, 2); 
 
 
-            for(int i = 0; i < player.Length;i++)
-                player[i].DrawSprite(graphics);
+            for(int i = 0; i < _players.Length;i++)
+                _players[i].DrawSprite(graphics);
         }
 
         public void GameTic() {
             var number = ActivePlayerNumber - 1;
 
             if (move_steps > 0)
-            if (player[number].Position != next_point[number])
+            if (_players[number].Position != next_point[number])
             {
-                    player[number].MoveToward(next_point[number], 10);
+                    _players[number].MoveToward(next_point[number], 10);
             }
             else {
-                if (player[number].point_number == points.Length - 1)
-                        player[number].point_number = 0;
-                next_point[number] = points[++player[number].point_number];
+                if (_players[number].point_number == points.Length - 1)
+                        _players[number].point_number = 0;
+                next_point[number] = points[++_players[number].point_number];
+
+                if (firstmoveflag == number && firstmoveflag <= 3)
+                {
+                    move_steps++;
+                    firstmoveflag++;
+                }
                 move_steps--;
             }
 
@@ -70,22 +76,22 @@ namespace Lab_7
 
         private void CheckPositions()
         {
-            for (int i = 0; i < player.Length; i++)
-                for (int j = 0; j < player.Length; j++)
+            for (int i = 0; i < _players.Length; i++)
+                for (int j = 0; j < _players.Length; j++)
                 {
-                    if ((player[i].Name != player[j].Name) && (player[i].Position == player[j].Position))
-                        player[i].Shift = player[j].Shift = true;
+                    if ((_players[i].Name != _players[j].Name) && (_players[i].point_number == _players[j].point_number))
+                        _players[i].Shift = _players[j].Shift = true;
                     else
-                        player[i].Shift = player[j].Shift = false;
+                        _players[i].Shift = _players[j].Shift = false;
                 }
         }
         public int ActivePlayerNumber {
             get { return activeplayernumber; }
             set {
-                if (value <= player.Length)
+                if (value <= _players.Length)
                     activeplayernumber = value;
                 else
-                    activeplayernumber = value - player.Length;
+                    activeplayernumber = value - _players.Length;
             }
         }
     }
