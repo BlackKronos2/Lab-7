@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace Lab_7
 {
-    class GameManager: GameStatistics
+    class GameManager: TriggersManager
     {
         PointF[] points;
         PointF[] next_point;
 
         private int move_steps;
-        private int activeplayernumber;
 
         private int firstmoveflag = 0;
 
@@ -34,13 +33,11 @@ namespace Lab_7
                 new Player(4, "Player4", Resource1.Yellow, new Size(50, 70), points[0])
             };
 
-            _players = new Player[player_count]; 
 
-            for (int i = 0; i < player_count; i++)
-                _players[i] = players[i];
+            _players = players;
 
             move_steps = 0;
-            ActivePlayerNumber = 0;
+            ActivePlayerNumber = -1;
         }
 
         public void Draw(Graphics graphics)
@@ -55,7 +52,7 @@ namespace Lab_7
         }
 
         public void GameTic() {
-            var number = ActivePlayerNumber - 1;
+            var number = ActivePlayerNumber;
 
             if (move_steps > 0)
             if (_players[number].Position != next_point[number])
@@ -67,7 +64,7 @@ namespace Lab_7
                         _players[number].point_number = 0;
                 next_point[number] = points[++_players[number].point_number];
 
-                if (firstmoveflag == number && firstmoveflag <= 3)
+                if (firstmoveflag == number && firstmoveflag <= _players.Length)
                 {
                     move_steps++;
                     firstmoveflag++;
@@ -93,16 +90,6 @@ namespace Lab_7
                     else
                         _players[i].Shift = _players[j].Shift = false;
                 }
-        }
-
-        public int ActivePlayerNumber {
-            get { return activeplayernumber; }
-            set {
-                if (value <= _players.Length)
-                    activeplayernumber = value;
-                else
-                    activeplayernumber = value - _players.Length;
-            }
         }
     }
 }

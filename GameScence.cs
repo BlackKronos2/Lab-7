@@ -160,7 +160,7 @@ namespace Lab_7
                 else
                 {
                     gameManager.Move_steps += (_dices.Values / 10 + _dices.Values % 10);
-                    gameManager.ActivePlayerNumber += 1;
+                    gameManager.TriggerCheking();
                 }
 
 
