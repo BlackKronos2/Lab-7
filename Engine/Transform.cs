@@ -11,18 +11,29 @@ namespace Lab_7
     {
         private PointF position;
 
-        public bool MoveToward(PointF target, float speed) {
+        public virtual void MoveToward(PointF target, float speed) {
+            if (target != position)
+            {
+                double x = Math.Abs(position.X - target.X);
+                double y = Math.Abs(position.Y - target.Y);
 
-            if (position.X != target.X)
-                position.X += (position.X < target.X) ? (speed) : (-speed);
 
-            if (position.Y != target.Y)
-                position.Y += (position.Y < target.Y) ? (speed) : (-speed);
+                double c = Math.Sqrt((x * x) + (y * y));
 
-            if (position == target)
-                return true;
-            else
-                return false;
+                double k = speed / c;
+
+                float delta_x = (float)(x * k);
+                float delta_y = (float)(y * k);
+
+                position.X += (target.X > position.X) ? (delta_x) : (-delta_x);
+                position.Y += (target.Y > position.Y) ? (delta_y) : (-delta_y);
+
+                if (c < speed)
+                {
+                    position.X = target.X;
+                    position.Y = target.Y;
+                }
+            }
         }
 
         public PointF Position {

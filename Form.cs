@@ -15,6 +15,8 @@ namespace Lab_7
         Dices _dices;
         PointF[] points;
 
+        int timer;
+        GameManager gameManager;
         public GameForm()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
@@ -30,9 +32,29 @@ namespace Lab_7
 
 
             points = new PointF[] {
-                new PointF()
+                new PointF(100, 500),
+                new PointF(200, 500),
+                new PointF(300, 500),
+                new PointF(400, 500),
+                new PointF(500, 500),
+                new PointF(600, 500),
+                new PointF(700, 500),
+                new PointF(800, 500),
+                new PointF(900, 500),
+
+                new PointF(900, 400),
+                new PointF(800, 400),
+                new PointF(700, 400),
+                new PointF(600, 400),
+                new PointF(500, 400),
+
             };
 
+
+
+            gameManager = new GameManager(points);
+
+            timer = 0;
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -44,7 +66,8 @@ namespace Lab_7
         {
             Graphics graphics = e.Graphics;
 
-            graphics.DrawImage(Resource1.Dice_holst, new PointF(0, 0));
+            gameManager.Draw(graphics);
+            graphics.DrawImage(Resource1.DiceHolst, new PointF(0, 0));
             _dices.DrawDices(graphics);
         }
         private void Update(object sender, EventArgs e)
@@ -52,13 +75,22 @@ namespace Lab_7
             button1.Enabled = !_dices.Button;
 
             _dices.Dice_Update();
+            gameManager.GameTic();
+
+            if(_dices.Button)
+            if (timer > 0)
+                timer -= timer1.Interval;
+            else
+            {
+                gameManager.move_steps += (_dices.Values / 10 + _dices.Values % 10);
+            }
             Invalidate();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             _dices.Button = true;
-
+            timer = 1000;
         }
     }
 }

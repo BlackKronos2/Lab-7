@@ -18,8 +18,8 @@ namespace Lab_7
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            GameForm game = new GameForm();
-            game.ShowDialog();
+            GameScence gameScence = new GameScence();
+            gameScence.ShowDialog();
             this.Hide();
             
         }

@@ -9,12 +9,12 @@ namespace Lab_7
 {
     class Dices
     {
-        int tics = 0;
+        int tics;
         private int timer_interval;
         private int value1;
         private int value2;
-        public bool Button { get; set; } = false;
-        public bool Animation { get; set; } = true;
+        public bool Button { get; set; }
+        public bool Animation { get; set; }
 
         static Random random1 = new Random((int)DateTime.Now.Ticks + 600);
         static Random random2 = new Random((int)DateTime.Now.Ticks);
@@ -25,12 +25,18 @@ namespace Lab_7
         public Dices(PointF point1, PointF point2, Size size, int update_Interval) {
             render1 = new Render(Resource1.Dice_1, size);
             render1.Position = point1;
+
             render2 = new Render(Resource1.Dice_1, size);
             render2.Position = point2;
 
             timer_interval = update_Interval;
 
             value1 = value2 = 1;
+
+            Button = false;
+            Animation = true;
+
+            tics = 0;
         }
 
         private void Mixing()
@@ -66,8 +72,18 @@ namespace Lab_7
                     }
                 }
                 else {
-                    Mixing();
-                    Button = false;
+                    if(tics == 0)
+                        Mixing();
+
+                    if (tics <= 50)
+                    {
+                        tics += timer_interval;
+                    }
+                    else
+                    {
+                        Button = false;
+                        tics = 0;
+                    }
                 }
         }
 
