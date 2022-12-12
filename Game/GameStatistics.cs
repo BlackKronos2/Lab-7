@@ -30,7 +30,7 @@ namespace Lab_7
 
             for (int i = 0; i < players.Length; i++) {
                 num = players[i];
-                statistics += $"{i + 1}. {_players[num].Name} \n";
+                statistics += $"{i + 1}. {_players[num].Name} {_players[num].point_number}\n";
             }
 
             return statistics;

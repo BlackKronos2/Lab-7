@@ -202,5 +202,10 @@ namespace Lab_7
         private void Statistic() {
             richTextBox1.Text = gameManager.PlayersStatistics();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            gameManager.Move_steps++;
+        }
     }
 }

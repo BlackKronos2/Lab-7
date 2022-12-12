@@ -38,6 +38,9 @@ namespace Lab_7
 
             move_steps = 0;
             ActivePlayerNumber = -1;
+
+            active_way = new Way(new PointF[0], 0);
+            active_way.Active = false;
         }
 
         public void Draw(Graphics graphics)
@@ -50,27 +53,56 @@ namespace Lab_7
             for(int i = 0; i < _players.Length;i++)
                 _players[i].DrawSprite(graphics);
         }
-
+        
         public void GameTic() {
             var number = ActivePlayerNumber;
 
-            if (move_steps > 0)
-            if (_players[number].Position != next_point[number])
-            {
-                    _players[number].MoveToward(next_point[number], 10);
-            }
-            else {
-                if (_players[number].point_number == points.Length - 1)
-                        _players[number].point_number = 0;
-                next_point[number] = points[++_players[number].point_number];
+            if (!active_way.Active)
+                if (move_steps > 0)
+                    if (_players[number].Position != next_point[number])
+                    {
+                        _players[number].MoveToward(next_point[number], 10);
+                    }
+                    else
+                    {
+                        if (_players[number].point_number == points.Length - 1)
+                            _players[number].point_number = 0;
 
-                if (firstmoveflag == number && firstmoveflag <= _players.Length)
+                        next_point[number] = points[++_players[number].point_number];
+
+                        if (firstmoveflag == number && firstmoveflag <= _players.Length)
+                        {
+                            move_steps++;
+                            firstmoveflag++;
+                        }
+                        move_steps--;
+                    }
+                else
+                    CheckingBlueAndRedPoints();
+            else {
+                var way_point = active_way.GetPoints();
+                var nextWayPoint = way_point[active_way.ActivePlayerPoint];
+
+                if (_players[number].Position != nextWayPoint)
                 {
-                    move_steps++;
-                    firstmoveflag++;
+                    _players[number].MoveToward(nextWayPoint, 10);
                 }
-                move_steps--;
+                else
+                {
+                    if (_players[number].Position != way_point[way_point.Length - 1])
+                        active_way.ActivePlayerPoint++;
+                    else
+                    {
+                        _players[number].point_number = active_way.GetFinish();
+
+                        next_point[number] = points[active_way.GetFinish()];
+
+                        active_way.Active = false;
+                    }
+                }
             }
+
+
 
             CheckPositions();
         }

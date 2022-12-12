@@ -17,7 +17,6 @@ namespace Lab_7
             84,
             89
         };
-
         private int[] green_points = new int[] { 
             10,
             52,
@@ -26,8 +25,58 @@ namespace Lab_7
         };
 
         bool green_flag;
-
         private int skip_number = -5;
+
+        Way blue_way_1 = new Way(
+            new PointF[] {
+            new PointF(396, 477),
+            new PointF(428, 516),
+            new PointF(438, 568)
+            }, 27);
+
+        Way blue_way_2 = new Way(
+            new PointF[] {
+            new PointF(381, 636),
+            new PointF(404, 673),
+            new PointF(471, 680)
+            },43);
+
+        Way blue_way_3 = new Way(
+            new PointF[] {
+            new PointF(860, 112),
+            new PointF(921, 163),
+            new PointF(963, 221)
+            },67);
+
+        Way blue_way_4 = new Way(
+            new PointF[] {
+            new PointF(820, 711),
+            new PointF(898, 656),
+            new PointF(964, 619)
+            },101);
+
+        Way red_way_1 = new Way(
+            new PointF[] {
+            new PointF(381, 289),
+            new PointF(197, 365),
+            new PointF(29, 419)
+            }, 14);
+
+        Way red_way_2 = new Way(
+            new PointF[] {
+            new PointF(253, 731),
+            new PointF(317, 674),
+            new PointF(329, 603)
+            }, 29);
+
+        Way red_way_3 = new Way(
+            new PointF[] {
+            new PointF(680, 325),
+            new PointF(636, 249),
+            new PointF(593, 191)
+            }, 74);
+
+        protected Way active_way;
 
         public int ActivePlayerNumber
         {
@@ -38,12 +87,15 @@ namespace Lab_7
             }
         }
 
-
         public void TriggerCheking() {
+            CheckingGreenAndYellowPoints();
+        }
+
+        public void CheckingGreenAndYellowPoints() {
             green_flag = false;
 
             for (int i = 0; i < green_points.Length; i++)
-                if (_players[(activeplayernumber == -1) ? (0):(activeplayernumber)].point_number == green_points[i])
+                if (_players[(activeplayernumber == -1) ? (0) : (activeplayernumber)].point_number == green_points[i])
                 {
                     green_flag = true;
                     break;
@@ -67,6 +119,54 @@ namespace Lab_7
                     ActivePlayerNumber += 1;
             else
                 green_flag = false;
+        }
+
+        public void CheckingBlueAndRedPoints() {
+            switch (_players[(activeplayernumber == -1) ? (0) : (activeplayernumber)].point_number) {
+                case 20: active_way = blue_way_1; break;
+                case 28: active_way = blue_way_2; break;
+                case 60: active_way = blue_way_3; break;
+                case 97: active_way = blue_way_4; break;
+                case 51: active_way = red_way_1; break;
+                case 38: active_way = red_way_2; break;
+                case 79: active_way = red_way_3; break;
+            }
+        }
+
+    }
+
+    public struct Way {
+        private PointF[] points;
+        private int finish_point_number;
+        private int player_on_way_number;
+
+        public Way(PointF[] new_points, int finish) {
+            this.player_on_way_number = 0;
+            this.points = new_points;
+            this.finish_point_number = finish;
+            this.Active = true;
+        }
+
+        public PointF[] GetPoints() {
+            return points;
+        }
+
+        public int GetFinish() {
+            return finish_point_number;
+        }
+
+        public int ActivePlayerPoint {
+            get { return player_on_way_number; }
+            set {
+                player_on_way_number = value;
+            }
+        }
+
+        public bool Active {
+            get { return !(finish_point_number == 0); }
+            set { if (value == false)
+                    finish_point_number = 0;
+            }
         }
     }
 }
