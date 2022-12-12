@@ -34,7 +34,10 @@ namespace Lab_7
             };
 
 
-            _players = players;
+            _players = new Player[player_count];
+
+            for (int i = 0; i < player_count; i++)
+                _players[i] = players[i];
 
             move_steps = 0;
             ActivePlayerNumber = -1;
@@ -61,7 +64,7 @@ namespace Lab_7
                 if (move_steps > 0)
                     if (_players[number].Position != next_point[number])
                     {
-                        _players[number].MoveToward(next_point[number], 10);
+                        _players[number].MoveToward(next_point[number], Properties.Settings.Default.MoveSpeed);
                     }
                     else
                     {
@@ -85,7 +88,7 @@ namespace Lab_7
 
                 if (_players[number].Position != nextWayPoint)
                 {
-                    _players[number].MoveToward(nextWayPoint, 10);
+                    _players[number].MoveToward(nextWayPoint, Properties.Settings.Default.MoveSpeed);
                 }
                 else
                 {

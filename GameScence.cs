@@ -18,7 +18,7 @@ namespace Lab_7
         int timer;
         GameManager gameManager;
 
-        public GameScence()
+        public GameScence(int player_count)
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -138,7 +138,7 @@ namespace Lab_7
 
             };
 
-            gameManager = new GameManager(points, 4);
+            gameManager = new GameManager(points, player_count);
 
             timer = 0;
         }
@@ -146,6 +146,8 @@ namespace Lab_7
         private void GameScence_Load(object sender, EventArgs e)
         {
             this.Text = "Игра";
+            richTextBox1.Enabled = false;
+            button2.Enabled = Properties.Settings.Default.DevelopMode;
         }
         private void Update(object sender, EventArgs e)
         {

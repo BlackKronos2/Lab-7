@@ -84,11 +84,11 @@ namespace Lab_7
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1143, 434);
+            this.button2.Location = new System.Drawing.Point(1201, 381);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(176, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
+            this.button2.Text = "Сдвинуть фишку на 1";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -98,7 +98,7 @@ namespace Lab_7
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1503, 792);
+            this.ClientSize = new System.Drawing.Size(1475, 792);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.checkBox1);
