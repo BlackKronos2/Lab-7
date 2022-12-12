@@ -4,6 +4,7 @@ using System.Linq;
 using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Lab_7
 {
@@ -35,6 +36,7 @@ namespace Lab_7
 
 
             _players = new List<Player>(player_count);
+            players_finish = new List<Player>(0);
 
             for (int i = 0; i < player_count; i++)
                 _players.Add(players[i]);
@@ -48,17 +50,15 @@ namespace Lab_7
 
         public void Draw(Graphics graphics)
         {
-            //Для отображения точек по которым ходят игроки
-            for (int i = 0; i < points.Length; i++)
-                graphics.DrawRectangle(Pens.Red, points[i].X, points[i].Y, 2, 2); 
-
-
             for(int i = 0; i < _players.Count; i++)
                 _players[i].DrawSprite(graphics);
         }
         
         public void GameTic() {
             var number = ActivePlayerNumber;
+
+            if (players_finish.Count == _players.Count)
+                EndGame();
 
             if (!active_way.Active)
                 if (move_steps > 0)
@@ -69,7 +69,16 @@ namespace Lab_7
                     else
                     {
                         if (_players[number].point_number == points.Length - 1)
-                            _players[number].point_number = 0;
+                        {
+                            players_finish.Add(_players[number]);
+                            TriggerCheking();
+                            move_steps = 0;
+
+                            if (players_finish.Count == _players.Count)
+                                EndGame();
+
+                            return;
+                        }
 
                         next_point[number] = points[++_players[number].point_number];
 
@@ -105,8 +114,6 @@ namespace Lab_7
                 }
             }
 
-
-
             CheckPositions();
         }
 
@@ -125,6 +132,18 @@ namespace Lab_7
                     else
                         _players[i].Shift = _players[j].Shift = false;
                 }
+        }
+
+        private void EndGame() {
+            string[] names = new string[players_finish.Count];
+
+            for (int i = 0; i < names.Length; i++)
+                names[i] = players_finish[i].Name;
+
+            players_finish.Clear();
+
+            EndGameForm endGameForm = new EndGameForm(names);
+            endGameForm.ShowDialog();
         }
     }
 }

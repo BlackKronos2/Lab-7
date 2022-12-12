@@ -116,7 +116,11 @@ namespace Lab_7
                     skip_number = -5;
                 }
                 else
+                {
                     ActivePlayerNumber += 1;
+                    while(players_finish.Contains(_players[ActivePlayerNumber]) && players_finish.Count != _players.Count)
+                        ActivePlayerNumber += 1;
+                }
             else
                 green_flag = false;
         }
@@ -132,7 +136,6 @@ namespace Lab_7
                 case 79: active_way = red_way_3; break;
             }
         }
-
     }
 
     public struct Way {

@@ -9,6 +9,7 @@ namespace Lab_7
     abstract class GameStatistics
     {
         public List<Player> _players;
+        protected List<Player> players_finish;
 
         public string PlayersStatistics() {
             string statistics = string.Empty;

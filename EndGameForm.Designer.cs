@@ -148,7 +148,7 @@ namespace Lab_7
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EndGameForm";
             this.Text = "EndGameForm";
-            this.Load += new System.EventHandler(this.EndGameForm_Load);
+            this.Load += new System.EventHandler(this.EndGameForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
