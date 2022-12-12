@@ -54,15 +54,15 @@ namespace Lab_7
             for (int i = 0; i < points.Length; i++)
                 graphics.DrawRectangle(Pens.Red, points[i].X, points[i].Y, 2, 2);
 
-            float[] Y_Position = new float[_players.Length];
-            int[] Number = new int[_players.Length];
-            for (int i = 0; i < _players.Length; i++)
+            float[] Y_Position = new float[_players.Count];
+            int[] Number = new int[_players.Count];
+            for (int i = 0; i < _players.Count; i++)
             {
                 Y_Position[i] = _players[i].Position.Y;
                 Number[i] = i;
             }
             Array.Sort(Y_Position, Number);
-            for (int i = 0; i < _players.Length; i++)
+            for (int i = 0; i < _players.Count; i++)
                 _players[Number[i]].DrawSprite(graphics);
         }
         
