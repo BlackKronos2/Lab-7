@@ -4,16 +4,16 @@ using System.Linq;
 using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Lab_7
 {
-    class GameManager: GameStatistics
+    class GameManager: TriggersManager
     {
         PointF[] points;
         PointF[] next_point;
 
         private int move_steps;
-        private int activeplayernumber;
 
         private int firstmoveflag = 0;
 
@@ -34,45 +34,84 @@ namespace Lab_7
                 new Player(4, "Player4", Resource1.Yellow, new Size(50, 70), points[0])
             };
 
-            _players = new Player[player_count]; 
+
+            _players = new List<Player>(player_count);
+            players_finish = new List<Player>(0);
 
             for (int i = 0; i < player_count; i++)
-                _players[i] = players[i];
+                _players.Add(players[i]);
 
             move_steps = 0;
-            ActivePlayerNumber = 0;
+            ActivePlayerNumber = -1;
+
+            active_way = new Way(new PointF[0], 0);
+            active_way.Active = false;
         }
 
         public void Draw(Graphics graphics)
         {
-            //Для отображения точек по которым ходят игроки
-            for (int i = 0; i < points.Length; i++)
-                graphics.DrawRectangle(Pens.Red, points[i].X, points[i].Y, 2, 2); 
-
-
-            for(int i = 0; i < _players.Length;i++)
+            for(int i = 0; i < _players.Count; i++)
                 _players[i].DrawSprite(graphics);
         }
-
+        
         public void GameTic() {
-            var number = ActivePlayerNumber - 1;
+            var number = ActivePlayerNumber;
 
-            if (move_steps > 0)
-            if (_players[number].Position != next_point[number])
-            {
-                    _players[number].MoveToward(next_point[number], 10);
-            }
+            if (players_finish.Count == _players.Count)
+                EndGame();
+
+            if (!active_way.Active)
+                if (move_steps > 0)
+                    if (_players[number].Position != next_point[number])
+                    {
+                        _players[number].MoveToward(next_point[number], Properties.Settings.Default.MoveSpeed);
+                    }
+                    else
+                    {
+                        if (_players[number].point_number == points.Length - 1)
+                        {
+                            players_finish.Add(_players[number]);
+                            TriggerCheking();
+                            move_steps = 0;
+
+                            if (players_finish.Count == _players.Count)
+                                EndGame();
+
+                            return;
+                        }
+
+                        next_point[number] = points[++_players[number].point_number];
+
+                        if (firstmoveflag == number && firstmoveflag <= _players.Count)
+                        {
+                            move_steps++;
+                            firstmoveflag++;
+                        }
+                        move_steps--;
+                    }
+                else
+                    CheckingBlueAndRedPoints();
             else {
-                if (_players[number].point_number == points.Length - 1)
-                        _players[number].point_number = 0;
-                next_point[number] = points[++_players[number].point_number];
+                var way_point = active_way.GetPoints();
+                var nextWayPoint = way_point[active_way.ActivePlayerPoint];
 
-                if (firstmoveflag == number && firstmoveflag <= 3)
+                if (_players[number].Position != nextWayPoint)
                 {
-                    move_steps++;
-                    firstmoveflag++;
+                    _players[number].MoveToward(nextWayPoint, Properties.Settings.Default.MoveSpeed);
                 }
-                move_steps--;
+                else
+                {
+                    if (_players[number].Position != way_point[way_point.Length - 1])
+                        active_way.ActivePlayerPoint++;
+                    else
+                    {
+                        _players[number].point_number = active_way.GetFinish();
+
+                        next_point[number] = points[active_way.GetFinish()];
+
+                        active_way.Active = false;
+                    }
+                }
             }
 
             CheckPositions();
@@ -85,8 +124,8 @@ namespace Lab_7
 
         private void CheckPositions()
         {
-            for (int i = 0; i < _players.Length; i++)
-                for (int j = 0; j < _players.Length; j++)
+            for (int i = 0; i < _players.Count; i++)
+                for (int j = 0; j < _players.Count; j++)
                 {
                     if ((_players[i].Name != _players[j].Name) && (_players[i].point_number == _players[j].point_number))
                         _players[i].Shift = _players[j].Shift = true;
@@ -95,14 +134,16 @@ namespace Lab_7
                 }
         }
 
-        public int ActivePlayerNumber {
-            get { return activeplayernumber; }
-            set {
-                if (value <= _players.Length)
-                    activeplayernumber = value;
-                else
-                    activeplayernumber = value - _players.Length;
-            }
+        private void EndGame() {
+            string[] names = new string[players_finish.Count];
+
+            for (int i = 0; i < names.Length; i++)
+                names[i] = players_finish[i].Name;
+
+            players_finish.Clear();
+
+            EndGameForm endGameForm = new EndGameForm(names);
+            endGameForm.ShowDialog();
         }
     }
 }

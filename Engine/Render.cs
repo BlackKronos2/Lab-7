@@ -9,8 +9,8 @@ namespace Lab_7
 {
     public class Render : Transform
     {
-        public Image sprite;
-        public Size entity_size;
+        public Image sprite { get; set; }
+        public Size entity_size { get; set; }
 
         public Render(Size size) {
             Position = new PointF(100, 100);
