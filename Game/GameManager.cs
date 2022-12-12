@@ -50,8 +50,20 @@ namespace Lab_7
 
         public void Draw(Graphics graphics)
         {
-            for(int i = 0; i < _players.Count; i++)
-                _players[i].DrawSprite(graphics);
+            //Для отображения точек по которым ходят игроки
+            for (int i = 0; i < points.Length; i++)
+                graphics.DrawRectangle(Pens.Red, points[i].X, points[i].Y, 2, 2);
+
+            float[] Y_Position = new float[_players.Length];
+            int[] Number = new int[_players.Length];
+            for (int i = 0; i < _players.Length; i++)
+            {
+                Y_Position[i] = _players[i].Position.Y;
+                Number[i] = i;
+            }
+            Array.Sort(Y_Position, Number);
+            for (int i = 0; i < _players.Length; i++)
+                _players[Number[i]].DrawSprite(graphics);
         }
         
         public void GameTic() {
