@@ -8,17 +8,17 @@ namespace Lab_7
 {
     abstract class GameStatistics
     {
-        public Player[] _players;
+        public List<Player> _players;
 
         public string PlayersStatistics() {
             string statistics = string.Empty;
 
-            int[] players = new int[_players.Length];
+            int[] players = new int[_players.Count];
 
-            for (int i = 0; i < _players.Length; i++) players[i] = i;
+            for (int i = 0; i < _players.Count; i++) players[i] = i;
 
-            for (int i = 0; i < _players.Length; i++)
-                for (int j = i + 1; j < _players.Length; j++)
+            for (int i = 0; i < _players.Count; i++)
+                for (int j = i + 1; j < _players.Count; j++)
                     if (_players[i].point_number < _players[j].point_number)
                     {
                         int k = players[i];

@@ -16,5 +16,10 @@ namespace Lab_7
         {
             InitializeComponent();
         }
+
+        private void EndGameForm_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

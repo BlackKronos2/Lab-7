@@ -114,10 +114,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\die.png" />
+    <None Include="Resources\YellowIcon.png" />
+    <None Include="Resources\RedIcon.png" />
+    <None Include="Resources\GreenIcon.png" />
     <None Include="Resources\Blue.png" />
     <None Include="Resources\Background.jpg" />
     <None Include="Resources\Background_1090x836.jpg" />
     <None Include="Resources\Background_1073x795.jpg" />
+    <None Include="Resources\BlueIcon.png" />
     <Content Include="Resources\Dice_2.png" />
     <None Include="Resources\Green.png" />
     <None Include="Resources\Yellow.png" />

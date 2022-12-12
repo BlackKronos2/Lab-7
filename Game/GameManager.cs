@@ -34,10 +34,10 @@ namespace Lab_7
             };
 
 
-            _players = new Player[player_count];
+            _players = new List<Player>(player_count);
 
             for (int i = 0; i < player_count; i++)
-                _players[i] = players[i];
+                _players.Add(players[i]);
 
             move_steps = 0;
             ActivePlayerNumber = -1;
@@ -53,7 +53,7 @@ namespace Lab_7
                 graphics.DrawRectangle(Pens.Red, points[i].X, points[i].Y, 2, 2); 
 
 
-            for(int i = 0; i < _players.Length;i++)
+            for(int i = 0; i < _players.Count; i++)
                 _players[i].DrawSprite(graphics);
         }
         
@@ -73,7 +73,7 @@ namespace Lab_7
 
                         next_point[number] = points[++_players[number].point_number];
 
-                        if (firstmoveflag == number && firstmoveflag <= _players.Length)
+                        if (firstmoveflag == number && firstmoveflag <= _players.Count)
                         {
                             move_steps++;
                             firstmoveflag++;
@@ -117,8 +117,8 @@ namespace Lab_7
 
         private void CheckPositions()
         {
-            for (int i = 0; i < _players.Length; i++)
-                for (int j = 0; j < _players.Length; j++)
+            for (int i = 0; i < _players.Count; i++)
+                for (int j = 0; j < _players.Count; j++)
                 {
                     if ((_players[i].Name != _players[j].Name) && (_players[i].point_number == _players[j].point_number))
                         _players[i].Shift = _players[j].Shift = true;

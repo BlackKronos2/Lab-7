@@ -83,7 +83,7 @@ namespace Lab_7
             get { return activeplayernumber; }
             set
             {
-                activeplayernumber = value % _players.Length;
+                activeplayernumber = value % _players.Count;
             }
         }
 
@@ -110,7 +110,7 @@ namespace Lab_7
 
 
             if (!green_flag)
-                if ((ActivePlayerNumber + 1) % _players.Length == skip_number)
+                if ((ActivePlayerNumber + 1) % _players.Count == skip_number)
                 {
                     ActivePlayerNumber += 2;
                     skip_number = -5;

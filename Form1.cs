@@ -19,7 +19,8 @@ namespace Lab_7
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-                
+            numericUpDown1.Value = 2;
+            numericUpDown2.Value = 10;
         }
 
         private void button1_Click(object sender, EventArgs e)
