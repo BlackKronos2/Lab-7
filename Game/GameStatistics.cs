@@ -10,12 +10,12 @@ using System.Runtime.Serialization.Json;
 namespace Lab_7
 {
     [DataContract]
-    abstract class GameStatistics
+    public abstract class GameStatistics
     {
         [DataMember]
         public List<Player> _players;
         [DataMember]
-        protected List<Player> players_finish;
+        public List<Player> players_finish;
 
         public string PlayersStatistics() {
             string statistics = string.Empty;

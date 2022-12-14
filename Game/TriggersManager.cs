@@ -11,7 +11,7 @@ using System.Runtime.Serialization.Json;
 namespace Lab_7
 {
     [DataContract]
-    class TriggersManager: GameStatistics
+    public class TriggersManager: GameStatistics
     {
         [DataMember]
         private int activeplayernumber;

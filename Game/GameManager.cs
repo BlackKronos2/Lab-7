@@ -12,7 +12,7 @@ using System.Runtime.Serialization.Json;
 namespace Lab_7
 {
     [DataContract]
-    class GameManager: TriggersManager
+    public class GameManager: TriggersManager
     {
         [DataMember]
         PointF[] points;

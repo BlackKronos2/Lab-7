@@ -12,7 +12,7 @@ using System.Runtime.Serialization.Json;
 namespace Lab_7
 {
     [DataContract]
-    class Player : Render
+    public class Player : Render
     {
         [DataMember]
         int number;
@@ -21,11 +21,11 @@ namespace Lab_7
         [DataMember]
         public int point_number { get; set; } = 0;
         [DataMember]
-        PointF shift;
+        private PointF shift;
         [DataMember]
         public bool Shift { get; set; } = true;
         [DataMember]
-        PointF delta;
+        private PointF delta;
 
         static Image[] sprites = new Image[4] {
             Resource1.Red,
