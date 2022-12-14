@@ -5,16 +5,24 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+
 
 namespace Lab_7
 {
+    [DataContract]
     class GameManager: TriggersManager
     {
+        [DataMember]
         PointF[] points;
+        [DataMember]
         PointF[] next_point;
 
+        [DataMember]
         private int move_steps;
 
+        [DataMember]
         private int firstmoveflag = 0;
 
         public GameManager(PointF[] map_points, int player_count) {
@@ -50,10 +58,6 @@ namespace Lab_7
 
         public void Draw(Graphics graphics)
         {
-            //Для отображения точек по которым ходят игроки
-            for (int i = 0; i < points.Length; i++)
-                graphics.DrawRectangle(Pens.Red, points[i].X, points[i].Y, 2, 2);
-
             float[] Y_Position = new float[_players.Count];
             int[] Number = new int[_players.Count];
             for (int i = 0; i < _players.Count; i++)

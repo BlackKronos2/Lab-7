@@ -4,12 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+
 
 namespace Lab_7
 {
+    [DataContract]
     class TriggersManager: GameStatistics
     {
+        [DataMember]
         private int activeplayernumber;
+        [DataMember]
         private int[] yellow_points = new int[]{ 
             6,
             48,
@@ -17,6 +23,7 @@ namespace Lab_7
             84,
             89
         };
+        [DataMember]
         private int[] green_points = new int[] { 
             10,
             52,
@@ -24,9 +31,12 @@ namespace Lab_7
             76
         };
 
+        [DataMember]
         bool green_flag;
+        [DataMember]
         private int skip_number = -5;
 
+        [DataMember]
         Way blue_way_1 = new Way(
             new PointF[] {
             new PointF(396, 477),
@@ -34,6 +44,7 @@ namespace Lab_7
             new PointF(438, 568)
             }, 27);
 
+        [DataMember]
         Way blue_way_2 = new Way(
             new PointF[] {
             new PointF(381, 636),
@@ -41,6 +52,7 @@ namespace Lab_7
             new PointF(471, 680)
             },43);
 
+        [DataMember]
         Way blue_way_3 = new Way(
             new PointF[] {
             new PointF(860, 112),
@@ -48,6 +60,7 @@ namespace Lab_7
             new PointF(963, 221)
             },67);
 
+        [DataMember]
         Way blue_way_4 = new Way(
             new PointF[] {
             new PointF(820, 711),
@@ -55,6 +68,7 @@ namespace Lab_7
             new PointF(964, 619)
             },101);
 
+        [DataMember]
         Way red_way_1 = new Way(
             new PointF[] {
             new PointF(381, 289),
@@ -62,6 +76,7 @@ namespace Lab_7
             new PointF(29, 419)
             }, 14);
 
+        [DataMember]
         Way red_way_2 = new Way(
             new PointF[] {
             new PointF(253, 731),
@@ -69,6 +84,7 @@ namespace Lab_7
             new PointF(329, 603)
             }, 29);
 
+        [DataMember]
         Way red_way_3 = new Way(
             new PointF[] {
             new PointF(680, 325),
@@ -76,6 +92,7 @@ namespace Lab_7
             new PointF(593, 191)
             }, 74);
 
+        [DataMember]
         protected Way active_way;
 
         public int ActivePlayerNumber
@@ -138,9 +155,13 @@ namespace Lab_7
         }
     }
 
+    [DataContract]
     public struct Way {
+        [DataMember]
         private PointF[] points;
+        [DataMember]
         private int finish_point_number;
+        [DataMember]
         private int player_on_way_number;
 
         public Way(PointF[] new_points, int finish) {

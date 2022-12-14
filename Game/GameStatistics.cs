@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+
 
 namespace Lab_7
 {
+    [DataContract]
     abstract class GameStatistics
     {
+        [DataMember]
         public List<Player> _players;
+        [DataMember]
         protected List<Player> players_finish;
 
         public string PlayersStatistics() {

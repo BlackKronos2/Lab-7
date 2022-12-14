@@ -46,5 +46,17 @@ namespace Lab_7.Properties {
                 this["DevelopMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LoadGame {
+            get {
+                return ((bool)(this["LoadGame"]));
+            }
+            set {
+                this["LoadGame"] = value;
+            }
+        }
     }
 }

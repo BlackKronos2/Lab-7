@@ -23,3 +23,5 @@ C:\Users\arefe\Source\Repos\Lab-7\obj\Debug\Lab 7.exe
 C:\Users\arefe\Source\Repos\Lab-7\obj\Debug\Lab 7.pdb
 C:\Users\arefe\Source\Repos\BlackKronos2\Lab-7\obj\Debug\Lab_7.GameScence.resources
 C:\Users\arefe\Source\Repos\BlackKronos2\Lab-7\obj\Debug\Lab_7.EndGameForm.resources
+C:\Users\arefe\Source\Repos\BlackKronos2\Lab-7\bin\Debug\Resource1.resx
+C:\Users\arefe\Source\Repos\BlackKronos2\Lab-7\bin\Debug\Resource1.Designer.cs

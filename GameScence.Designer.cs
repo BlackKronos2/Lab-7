@@ -112,6 +112,7 @@ namespace Lab_7
             this.MinimizeBox = false;
             this.Name = "GameScence";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GameScence_FormClosed);
             this.Load += new System.EventHandler(this.GameScence_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScence_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -4,11 +4,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+
 
 namespace Lab_7
 {
+    [DataContract]
     public class Transform
     {
+        [DataMember]
         private PointF position;
 
         public virtual void MoveToward(PointF target, float speed) {

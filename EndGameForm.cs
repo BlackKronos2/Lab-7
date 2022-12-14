@@ -62,7 +62,8 @@ namespace Lab_7
 
         private void EndGameForm_Load_1(object sender, EventArgs e)
         {
-
+            Properties.Settings.Default.LoadGame = false;
+            Properties.Settings.Default.Save();
         }
     }
 }
