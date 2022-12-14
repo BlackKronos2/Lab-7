@@ -11,7 +11,7 @@ using System.Runtime.Serialization.Json;
 namespace Lab_7
 {
     [DataContract]
-    class Dices
+    public class Dices
     {
         [DataMember]
         int tics;

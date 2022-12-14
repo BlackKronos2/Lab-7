@@ -34,7 +34,7 @@ namespace Lab_7
             Resource1.Yellow,
         };
 
-        public Player(int newnumber, string newname, Image image, Size size, PointF point) {
+        public Player(int newnumber, string newname, Size size, PointF point) {
             number = newnumber;
             Position = point;
             Name = newname;

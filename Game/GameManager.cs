@@ -36,10 +36,10 @@ namespace Lab_7
             };
 
             Player[] players = new Player[4] { 
-                new Player(1, "Player1", Resource1.Red, new Size(50, 70), points[0]),
-                new Player(2, "Player2", Resource1.Blue, new Size(50, 70), points[0]),
-                new Player(3, "Player3", Resource1.Green, new Size(50, 70), points[0]),
-                new Player(4, "Player4", Resource1.Yellow, new Size(50, 70), points[0])
+                new Player(1, "Player1", new Size(50, 70), points[0]),
+                new Player(2, "Player2", new Size(50, 70), points[0]),
+                new Player(3, "Player3", new Size(50, 70), points[0]),
+                new Player(4, "Player4", new Size(50, 70), points[0])
             };
 
 
