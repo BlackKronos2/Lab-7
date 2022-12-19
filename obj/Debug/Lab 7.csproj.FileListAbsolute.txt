@@ -25,3 +25,18 @@ C:\Users\arefe\Source\Repos\BlackKronos2\Lab-7\obj\Debug\Lab_7.GameScence.resour
 C:\Users\arefe\Source\Repos\BlackKronos2\Lab-7\obj\Debug\Lab_7.EndGameForm.resources
 C:\Users\arefe\Source\Repos\BlackKronos2\Lab-7\bin\Debug\Resource1.resx
 C:\Users\arefe\Source\Repos\BlackKronos2\Lab-7\bin\Debug\Resource1.Designer.cs
+C:\Users\79133\Source\Repos\Lab-7\bin\Debug\Resource1.resx
+C:\Users\79133\Source\Repos\Lab-7\bin\Debug\Resource1.Designer.cs
+C:\Users\79133\Source\Repos\Lab-7\bin\Debug\Lab 7.exe.config
+C:\Users\79133\Source\Repos\Lab-7\bin\Debug\Lab 7.exe
+C:\Users\79133\Source\Repos\Lab-7\bin\Debug\Lab 7.pdb
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab 7.csproj.AssemblyReference.cache
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab_7.EndGameForm.resources
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab_7.Form1.resources
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab_7.GameScence.resources
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab_7.Properties.Resources.resources
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab_7.Resource1.resources
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab 7.csproj.GenerateResource.cache
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab 7.csproj.CoreCompileInputs.cache
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab 7.exe
+C:\Users\79133\Source\Repos\Lab-7\obj\Debug\Lab 7.pdb
