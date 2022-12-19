@@ -276,7 +276,8 @@ namespace Lab_7
         {
             this.Text = "Игра";
             richTextBox1.Enabled = false;
-            button2.Enabled = Properties.Settings.Default.DevelopMode;
+
+            button2.Enabled = false;
         }
         private void Update(object sender, EventArgs e)
         {
@@ -317,6 +318,8 @@ namespace Lab_7
                 timer = 1000;
             else
                 timer = 50;
+
+            button2.Enabled = Properties.Settings.Default.DevelopMode;
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
