@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
 
 
 namespace Lab_7
@@ -14,8 +9,10 @@ namespace Lab_7
     public class Transform
     {
         [DataMember]
+        /// <summary> Позиция обьека (Координаты) </summary>
         private PointF position;
 
+        /// <summary> Перемещение объекта к цели с заданной скоростью </summary>
         public virtual void MoveToward(PointF target, float speed) {
             if (target != position)
             {
@@ -41,6 +38,7 @@ namespace Lab_7
             }
         }
 
+        /// <summary> Получение/Моментальное изменение координат </summary>
         public PointF Position {
             get { return position; }
             set { position = value; }

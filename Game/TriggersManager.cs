@@ -14,8 +14,10 @@ namespace Lab_7
     public class TriggersManager: GameStatistics
     {
         [DataMember]
+        /// <summary> Номер игрока, который сейчас ходит </summary>
         private int activeplayernumber;
         [DataMember]
+        /// <summary> Желтые точки карты (Игрок на них пропускает ход) </summary>
         private int[] yellow_points = new int[]{ 
             6,
             48,
@@ -24,6 +26,7 @@ namespace Lab_7
             89
         };
         [DataMember]
+        /// <summary> Зеленые точки карты (Игрок на них получает доп. ход) </summary>
         private int[] green_points = new int[] { 
             10,
             52,
@@ -32,10 +35,13 @@ namespace Lab_7
         };
 
         [DataMember]
+        /// <summary> Получает ли текущий игрок доп. ход </summary>
         bool green_flag;
         [DataMember]
+        /// <summary> Номер игрока, который пропустит ход </summary>
         private int skip_number = -5;
 
+        //Пути вынужденного перемещения игроков
         [DataMember]
         Way blue_way_1 = new Way(
             new PointF[] {
@@ -93,6 +99,7 @@ namespace Lab_7
             }, 74);
 
         [DataMember]
+        /// <summary> Нуждается ли игрок в вынужденном перемещении </summary>
         protected Way active_way;
 
         public int ActivePlayerNumber
@@ -104,10 +111,12 @@ namespace Lab_7
             }
         }
 
+        /// <summary> Проверка на события </summary>
         public void TriggerCheking() {
             CheckingGreenAndYellowPoints();
         }
 
+        /// <summary> Проверка на события </summary>
         public void CheckingGreenAndYellowPoints() {
             green_flag = false;
 
@@ -142,6 +151,7 @@ namespace Lab_7
                 green_flag = false;
         }
 
+        /// <summary> Проверка на события </summary>
         public void CheckingBlueAndRedPoints() {
             switch (_players[(activeplayernumber == -1) ? (0) : (activeplayernumber)].point_number) {
                 case 20: active_way = blue_way_1; break;
@@ -156,12 +166,18 @@ namespace Lab_7
     }
 
     [DataContract]
+    /// <summary> Вынужденный путь, по которому проходит игрок
+    /// Если попадет на синию или красную точки карты
+    /// </summary>
     public struct Way {
         [DataMember]
+        /// <summary> Координаты точек пути </summary>
         private PointF[] points;
         [DataMember]
+        /// <summary> Последняя точка пути </summary>
         private int finish_point_number;
         [DataMember]
+        /// <summary> Точка пути, на которой находится фишка игрока </summary>
         private int player_on_way_number;
 
         public Way(PointF[] new_points, int finish) {

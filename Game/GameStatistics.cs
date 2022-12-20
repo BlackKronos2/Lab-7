@@ -13,10 +13,13 @@ namespace Lab_7
     public abstract class GameStatistics
     {
         [DataMember]
+        /// <summary> Игроки в игре </summary>
         public List<Player> _players;
         [DataMember]
+        /// <summary> Игроки, пришедшие к финишу </summary>
         public List<Player> players_finish;
 
+        /// <summary> Статистика игроков </summary>
         public string PlayersStatistics() {
             string statistics = string.Empty;
 

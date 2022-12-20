@@ -15,18 +15,25 @@ namespace Lab_7
     public class Player : Render
     {
         [DataMember]
+        /// <summary> Номер игрока </summary>
         int number;
         [DataMember]
+        /// <summary> Имя игрока </summary>
         public string Name { get; set; } = "";
         [DataMember]
+        /// <summary> Номер точки карты, на которой игрок находится </summary>
         public int point_number { get; set; } = 0;
         [DataMember]
+        /// <summary> Координты смещения игрока, если он будет на 1 точке с другой фишкой </summary>
         private PointF shift;
         [DataMember]
+        /// <summary> Координты смещения игрока, если он будет на 1 точке с другой фишкой </summary>
         public bool Shift { get; set; } = true;
         [DataMember]
+        /// <summary> Сумма текущих координат и координат смещения </summary>
         private PointF delta;
 
+        /// <summary> Изображения для фишки </summary>
         static Image[] sprites = new Image[4] {
             Resource1.Red,
             Resource1.Blue,
@@ -34,6 +41,7 @@ namespace Lab_7
             Resource1.Yellow,
         };
 
+        /// <summary> Конструктор </summary>
         public Player(int newnumber, string newname, Size size, PointF point) {
             number = newnumber;
             Position = point;
@@ -54,6 +62,7 @@ namespace Lab_7
             delta = new PointF(entity_size.Width / 2 + 25 , 90);
         }
 
+        /// <summary> Отрисовка игрока </summary>
         public override void DrawSprite(Graphics graphics) {
             float renderx = Position.X - (delta.X / 2) + ((Shift) ? (shift.X): (0));
             float rendery = Position.Y - (delta.Y / 2) + ((Shift) ? (shift.Y) : (0));

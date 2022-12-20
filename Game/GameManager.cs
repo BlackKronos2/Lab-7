@@ -15,16 +15,21 @@ namespace Lab_7
     public class GameManager: TriggersManager
     {
         [DataMember]
+        /// <summary> координаты всех точек карт </summary>
         PointF[] points;
         [DataMember]
+        /// <summary> Следующие за текущей точки каждого игрока </summary>
         PointF[] next_point;
 
         [DataMember]
+        /// <summary> Кол-во точек, на которое надо сдвинутся фишке </summary>
         private int move_steps;
 
         [DataMember]
+        /// <summary> Определяет ход 1 круга </summary>
         private int firstmoveflag = 0;
 
+        /// <summary> Конструктор </summary>
         public GameManager(PointF[] map_points, int player_count) {
             points = map_points;
 
@@ -56,6 +61,7 @@ namespace Lab_7
             active_way.Active = false;
         }
 
+        /// <summary> Отрисовка обьектов </summary>
         public void Draw(Graphics graphics)
         {
             float[] Y_Position = new float[_players.Count];
@@ -69,7 +75,8 @@ namespace Lab_7
             for (int i = 0; i < _players.Count; i++)
                 _players[Number[i]].DrawSprite(graphics);
         }
-        
+
+        /// <summary> События по фиксированному времени </summary>
         public void GameTic() {
             var number = ActivePlayerNumber;
 
@@ -133,11 +140,13 @@ namespace Lab_7
             CheckPositions();
         }
 
+        /// <summary> Кол-во точек, на которое надо сдвинутся фишке </summary>
         public int Move_steps {
             get { return move_steps; }
             set { move_steps = value; }
         }
 
+        /// <summary> Сдвиг фишек игроков, если они находятся на 1 точке карты </summary>
         private void CheckPositions()
         {
             for (int i = 0; i < _players.Count; i++)
@@ -150,6 +159,7 @@ namespace Lab_7
                 }
         }
 
+        /// <summary> Окончание игры </summary>
         private void EndGame() {
             string[] names = new string[players_finish.Count];
 
